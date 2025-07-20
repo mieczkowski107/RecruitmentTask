@@ -1,8 +1,11 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model CatFact;
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Cat Facts</h1>
+    <h4>Fact:</h4>
+    <p> @Model.Fact </p>
+    <h6>Length:</h6>
+    <p>@Model.Length</p>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-info">New cat fact</a>
+    <a asp-controller="Home" asp-action="CatFactFileDownload" class="btn btn-success">Download file with facts</a>
 </div>
