@@ -1,13 +1,13 @@
 ﻿using RecruitmentTask.Models;
 
-namespace RecruitmentTask.Services.ApiHandler;
+namespace RecruitmentTask.Services.CatFactApi;
 
-public class ApiHandler : IApiHandler
+public class CatFactApi : ICatFactApi
 {
     private readonly HttpClient _httpClient;
     private const string CatFactEndpoint = "fact";
 
-    public ApiHandler(HttpClient httpClient)
+    public CatFactApi(HttpClient httpClient)
     {
         _httpClient = httpClient;
     }
