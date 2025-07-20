@@ -2,6 +2,7 @@
 
 public class FileHandler : IFileHandler
 {
+
     public async Task AppendToFile(string filePath, string content)
     {
         if (!string.IsNullOrWhiteSpace(filePath))
@@ -16,4 +17,11 @@ public class FileHandler : IFileHandler
         }
 
     }
+
+    public async Task<byte[]> GetFile(string filePath)
+    {
+        return await File.ReadAllBytesAsync(filePath);
+    }
+
+
 }
