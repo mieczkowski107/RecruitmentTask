@@ -1,6 +1,5 @@
-using Microsoft.Extensions.Options;
-using RecruitmentTask.Services.ApiHandler;
-using RecruitmentTask.Services.ApiToFile;
+using RecruitmentTask.Services.CatFactApi;
+using RecruitmentTask.Services.CatFactService;
 using RecruitmentTask.Services.FileHandler;
 
 namespace RecruitmentTask;
@@ -16,13 +15,13 @@ public class Program
 
 
         builder.Services.Configure<FileSetting>(builder.Configuration.GetSection("FileSetting"));
-        builder.Services.AddHttpClient<IApiHandler, ApiHandler>((httpClient) =>
+        builder.Services.AddHttpClient<ICatFactApi, CatFactApi>((httpClient) =>
         {
             httpClient.BaseAddress = new Uri("https://catfact.ninja");
         });
 
         builder.Services.AddScoped<IFileHandler, FileHandler>();
-        builder.Services.AddScoped<IApiToFileService, ApiToFileService>();
+        builder.Services.AddScoped<ICatFactService, CatFactService>();
 
 
         var app = builder.Build();
