@@ -4,5 +4,5 @@ namespace RecruitmentTask.Services.CatFactApi;
 
 public interface ICatFactApi
 {
-    Task<CatFact?> GetCatFact();
+    Task<CatFact> GetCatFact();
 }

@@ -18,8 +18,16 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var fetchedCatFact = await _catFactService.FetchAndSave();
-        return View(fetchedCatFact);
+        try
+        {
+            var fetchedCatFact = await _catFactService.FetchAndSave();
+            return View(fetchedCatFact);
+        }
+        catch (CatApiException )
+        {
+            return RedirectToAction("Error");
+        }
+       
     }
 
     public async Task<IActionResult> CatFactFileDownload()

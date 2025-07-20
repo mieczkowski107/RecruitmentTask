@@ -22,14 +22,10 @@ public class CatFactService : ICatFactService
     public async Task<CatFact?> FetchAndSave()
     {
         var catFact = await _catFactApi.GetCatFact();
-        if (catFact != null)
-        {
-            var content = FormatCatFactForFile(catFact);
-            var filePath = Path.Combine(_fileSetting.Path, _fileSetting.Name);
-            await _fileHandler.AppendToFile(filePath, content);
-            return catFact;
-        }
-        return null;
+        var content = FormatCatFactForFile(catFact);
+        var filePath = Path.Combine(_fileSetting.Path, _fileSetting.Name);
+        await _fileHandler.AppendToFile(filePath, content);
+        return catFact;
     }
 
     public async Task<FileDto> GetCatFile()
