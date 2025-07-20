@@ -5,7 +5,7 @@ namespace RecruitmentTask.Services.CatFactApi;
 public class CatFactApi : ICatFactApi
 {
     private readonly HttpClient _httpClient;
-    private const string CatFactEndpoint = "factxx";
+    private const string CatFactEndpoint = "fact";
 
     public CatFactApi(HttpClient httpClient)
     {
